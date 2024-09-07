@@ -1,2 +1,9 @@
 .idea/
 media/images/*
+db.sqlite3
+ibratdebate/.env
+ibratdebate/__pycache__/
+core/__pycache__/
+api/__pycache__/
+core/migrations/
+api/migrations/
