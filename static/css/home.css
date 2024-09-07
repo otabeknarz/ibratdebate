@@ -1,0 +1,369 @@
+/* Welcome section */
+
+.welcome {
+  text-align: end;
+  position: relative;
+  margin-bottom: 200px;
+}
+
+.welcome img {
+  width: 600px;
+}
+
+.welcome .desc {
+  text-align: start;
+  position: absolute;
+  bottom: -160px;
+}
+
+main .desc h1.welcome-text {
+  font-weight: 400;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+/* End Welcome section */
+
+
+
+/* Participate button */
+
+a.participate.primary {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* End Participate button */
+
+
+/* Upcoming Debates section */
+
+.upcoming-debates {
+  margin: 150px 0;
+  text-align: center;
+  background-color: white;
+  padding: 80px 0;
+  box-shadow: 0 0 8px 2px #d9d9d9 inset;
+}
+
+.upcoming-debate-slider {
+  margin: 40px 0;
+}
+
+.upcoming-debate-slider swiper-slide {
+  width: 400px;
+  background-color: #F2F1F0;
+  border-radius: 16px;
+}
+
+.upcoming-debate-card {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+}
+
+.upcoming-debate-card .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: start;
+}
+
+.upcoming-debate-card .info i {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.upcoming-debate-card .info .location p {
+  font-size: 1rem;
+}
+
+.upcoming-debate-card .more-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.upcoming-debate-card .more-info .date {
+  color: #828282;
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+}
+
+.upcoming-debate-card .more-info .primary {
+  padding: 8px 12px;
+}
+
+/* End Upcoming Debates section */
+
+
+/* Map Section */
+
+.map {
+  text-align: center;
+  padding: 80px 0;
+  position: relative;
+}
+
+.map h1 {
+  margin: 40px;
+}
+
+.map svg {
+  fill: rgba(128, 128, 128, 0.5);
+  width: 100%;
+}
+
+.map .region-stats {
+  position: fixed;
+  width: 350px;
+  border-radius: 16px;
+  background-color: white;
+  padding: 0 10px;
+  display: none;
+  right: 60px;
+  top: 100px;
+  box-shadow: 0 0 6px 1px #d9d9d9;
+  z-index: 1000;
+}
+
+.map .region-stats .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px 0 10px;
+}
+
+.map .region-stats .top i {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.map .region-stats img {
+  border-radius: 8px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.map .region-stats ul li i {
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.map .region-stats ul li h3 {
+  display: inline-block;
+}
+
+.map .region-stats a {
+  padding: 8px 16px;
+  margin: 20px 0 10px 0;
+  display: block;
+}
+
+.map .region-stats * {
+  margin: 0;
+  padding: 0;
+}
+
+/* Regions */
+
+.map svg path#UZTK,
+.map svg path#UZTO {
+  fill: rgb(90, 90, 90);
+  height: 200px;
+}
+
+.map svg path#UZFA {
+  fill: rgba(90, 90, 90, 0.9);
+}
+
+.map svg path#UZSA {
+  fill: rgba(90, 90, 90, 0.6);
+}
+
+.map svg path#UZSU {
+  fill: rgba(90, 90, 90, 0.7)
+}
+
+/* End Regions */
+
+.map svg path:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.map h2 {
+  padding: 0 100px;
+  margin-bottom: 30px;
+}
+
+.map ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.map ul li {
+  display: inline-block;
+}
+
+/* End Map section */
+
+
+/* Previous Debates section */
+
+.previous-debates {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.previous-debates .prev-debate-slider {
+  padding: 40px 0;
+}
+
+.previous-debates .prev-debate-slider .prev-debate-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prev-debate-card .top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.prev-debate-card .top img {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+}
+
+.prev-debate-card .top .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: start;
+  padding: 0 10px;
+}
+
+.prev-debate-card .top .desc h2 {
+  font-size: 1rem;
+}
+
+.prev-debate-card .top .desc p {
+  font-size: 0.75rem;
+  color: #828282;
+}
+
+.prev-debate-card .secondary {
+  width: 100%;
+  padding: 10px;
+}
+
+/* End Previous Debates section */
+
+
+/* Team section */
+
+.team {
+  text-align: center;
+  background-color: #F2F1F0;
+  padding: 80px 0;
+}
+
+.team .heading {
+  margin-bottom: 30px;
+}
+
+.team .team-slider {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.team .team-slider .member-card {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.team .team-slider .member-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.team .team-slider .member-card .desc {
+  background-color: white;
+  padding: 10px 0;
+  border-radius: 0 0 16px 16px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+/* End Team section */
+
+
+
+/* FAQ section */
+
+.faq {
+  padding: 40px 0;
+}
+
+.faq ul {
+  margin: 20px 0;
+}
+
+.faq ul li {
+  list-style: none;
+  border-radius: 16px;
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.question {
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    transition: 0.1s;
+}
+
+.answer.show {
+    max-height: 1000px;
+    margin-top: 20px;
+}
+
+.block {
+  display: block !important;
+}
+
+/* End FAQ section */

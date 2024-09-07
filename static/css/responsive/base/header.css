@@ -1,0 +1,29 @@
+@media screen and (max-width: 1200px) {
+    header .container {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* Header section */
+    header {
+        height: 75px;
+        top: -5px;
+    }
+
+    header .container .logo {
+        height: 30px;
+    }
+
+    header .container {
+        width: 100%;
+    }
+
+    header .container nav {
+        display: none;
+    }
+
+    header .container button {
+        padding: 8px;
+    }
+}

@@ -1,0 +1,42 @@
+<header>
+{% load static %}
+{% load i18n %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive/base/header.css' %}">
+{% endblock %}
+
+<div class="container">
+  <div class="logo">
+    <a href="{% url 'core:home' %}">
+       <img src="{% static 'images/logo.png' %}" alt="LOGO">
+    </a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">{% trans "about-project" %}</a></li>
+      <li><a href="#map">{% trans "debate-clubs" %}</a></li>
+      <li><a href="#team">{% trans "team" %}</a></li>
+      <li><a href="#faq">{% trans "faq" %}</a></li>
+    </ul>
+  </nav>
+    {% get_current_language as current_language %}
+  <button class="primary">
+      {% if current_language == "uz" %}
+      <img src="{% static "images/uz-flag.svg" %}" alt="uz-flag"> <span>O'zbekcha</span>
+      {% else %}
+      <img src="{% static "images/en-flag.svg" %}" alt="en-flag"> <span>English</span>
+      {% endif %}
+      <i class="fa-solid fa-chevron-down"></i>
+  </button>
+  <div class="lang-menu">
+      <ul>
+          <li id="en"><a href="/uz/"><img src="{% static "images/uz-flag.svg" %}" alt="uz-flag"> <span>O'zbekcha</span></a></li>
+          <li id="uz"><a href="/en/"><img src="{% static "images/en-flag.svg" %}" alt="en-flag"> <span>English</span></a></li>
+      </ul>
+  </div>
+
+</div>
+</header>
+<div class="space-div"></div>

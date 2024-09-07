@@ -1,0 +1,18 @@
+@media screen and (max-width: 576px) {
+    /* Footer */
+    footer {
+        padding: 40px;
+    }
+
+    footer .container {
+        width: 100%;
+    }
+
+    footer .navs {
+        flex-direction: column;
+    }
+
+    footer .navs .logo {
+        margin: 20px 0;
+    }
+}

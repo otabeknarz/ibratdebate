@@ -1,0 +1,19 @@
+input {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 16px;
+    font-size: 1.25rem;
+    color: #333;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    margin: 20px 0;
+    width: 100%;
+}
+
+.form h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.form form button {
+    width: 100%;
+}

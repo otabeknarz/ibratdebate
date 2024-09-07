@@ -1,0 +1,152 @@
+@media screen and (max-width: 1200px) {
+  .welcome .desc {
+    bottom: -200px;
+  }
+
+  .welcome .desc h1.welcome-text {
+    width: 80%;
+  }
+
+  .welcome img {
+    width: 500px;
+  }
+
+  .purpose .first-section img,
+  .purpose .second-section img {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .participate {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .participate a.secondary {
+    margin: 10px 0;
+  }
+
+  /* Welcome section */
+
+  .welcome {
+    position: static;
+    margin-bottom: 40px;
+  }
+
+  .welcome .desc h1.welcome-text {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .welcome img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .welcome .desc {
+    position: static;
+    width: 100%;
+    font-size: 1.25rem;
+  }
+
+  /*  End Welcome section */
+
+
+  /* Upcoming debates */
+
+  .upcoming-debates .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* End Upcoming debates */
+
+
+  /* Purpose section */
+
+  .purpose {
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  .purpose .desc {
+    padding: 0;
+    margin: 0;
+  }
+
+  .purpose .first-section,
+  .purpose .second-section {
+    flex-direction: column-reverse;
+    margin: 30px 0;
+  }
+
+  .purpose li {
+    list-style: none;
+  }
+
+  .purpose img {
+    width: 50%;
+    margin: 20px;
+  }
+
+  /* Map section */
+
+  .map {
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  .map h1 {
+    font-size: 1.5rem;
+  }
+
+  .map h2 {
+    font-size: 1.25rem;
+    padding: 0;
+  }
+
+  .map ul {
+    display: block;
+  }
+
+  .map ul li {
+    display: block;
+    margin: 20px 0;
+  }
+
+  .map svg {
+    width: 100%;
+    height: 400px;
+  }
+
+  /* News section */
+
+  .news {
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  /* End News section */
+
+  /* Team section */
+
+  .team {
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  /* End Team section */
+
+
+  /* FAQ section */
+  .faq .text-center h1 {
+    font-size: 1.75rem;
+  }
+
+  .faq ul li .question,
+  .faq ul li .answer {
+    font-size: 0.85rem;
+  }
+}

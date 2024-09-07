@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-06 15:50+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\ibratdebate\settings.py:112
+msgid "O'zbek tili"
+msgstr ""
+
+#: .\ibratdebate\settings.py:113
+msgid "English"
+msgstr ""
+
+#: .\templates\base\header.html:18
+msgid "about-project"
+msgstr "About project"
+
+#: .\templates\base\header.html:19 .\templates\home.html:125
+msgid "debate-clubs"
+msgstr "Debate clubs"
+
+#: .\templates\base\header.html:20 .\templates\home.html:296
+msgid "team"
+msgstr "Team"
+
+#: .\templates\base\header.html:21
+msgid "faq"
+msgstr "FAQ"
+
+#: .\templates\home.html:20 .\templates\purpose.html:13
+msgid "moto"
+msgstr "For young people to learn to listen, think and speak"
+
+#: .\templates\home.html:22 .\templates\purpose.html:15
+msgid "welcome-text"
+msgstr ""
+"<span class=\"bold\">Ibrat Debate - </span>organized by <span class=\"bold\">"
+"\"Ibrat Farzandlari\".</span> We organize <span class=\"bold\">debates in "
+"English</span> in the regions of our country"
+
+#: .\templates\home.html:30
+msgid "more-details"
+msgstr "More details"
+
+#: .\templates\home.html:31
+msgid "participate"
+msgstr "Join to Debate"
+
+#: .\templates\home.html:39
+msgid "upcoming-debates"
+msgstr "Upcoming debates"
+
+#: .\templates\home.html:213
+msgid "debates-nowadays"
+msgstr "Our debates are currently available in these areas and you can join"
+
+#: .\templates\home.html:215
+msgid "tashkent"
+msgstr "Tashkent city"
+
+#: .\templates\home.html:216
+msgid "jizzakh"
+msgstr "Jizzakh region"
+
+#: .\templates\home.html:217
+msgid "samarkand"
+msgstr "Samarkand region"
+
+#: .\templates\home.html:218
+msgid "ferghana"
+msgstr "Ferghana region"
+
+#: .\templates\home.html:219
+msgid "surkhondaryo"
+msgstr "Surkhondaryo region"
+
+#: .\templates\home.html:226
+msgid "previous-debates"
+msgstr "Previous debates"
+
+#: .\templates\home.html:238 .\templates\home.html:250
+#: .\templates\home.html:262 .\templates\home.html:274
+#: .\templates\home.html:286
+msgid "details"
+msgstr "Details"
+
+#: .\templates\home.html:290 .\templates\home.html:313
+msgid "see-more"
+msgstr "See more"
+
+#: .\templates\home.html:320
+msgid "faq-title"
+msgstr "Frequently asked questions"
+
+#: .\templates\home.html:321
+msgid "faq-subtitle"
+msgstr "We have left answers to questions that may be of interest to you"
+
+#: .\templates\home.html:326
+msgid "faq-q-1"
+msgstr "What should I do to participate in the debates?"
+
+#: .\templates\home.html:329
+msgid "faq-a-1"
+msgstr ""
+"In order to participate in the debate sessions, you have to register in "
+"@ibratdebate_bot when the date of the new sessions are announced."
+
+#: .\templates\home.html:333
+msgid "faq-q-2"
+msgstr "What level of English do I need to take part in the debates?"
+
+#: .\templates\home.html:336
+msgid "faq-a-2"
+msgstr ""
+"Your level of English should be at least B1. If your level is lower than "
+"that you can participate as a listener."
+
+#: .\templates\home.html:340
+msgid "faq-q-3"
+msgstr ""
+"What should I do in order to become a ‘best debater’ and receive a "
+"sertificate?"
+
+#: .\templates\home.html:343
+msgid "faq-a-3"
+msgstr ""
+"You have to be active, present the best arguments and counterarguments and "
+"show your leadership skills through leading the team during the sessions, in "
+"order to become a ‘best debater’."
+
+#: .\templates\home.html:347
+msgid "faq-q-4"
+msgstr "Where are the debates conducted?"
+
+#: .\templates\home.html:350
+msgid "faq-a-4"
+msgstr ""
+"Nowadays, Ibrat debate is conducted in 7 different locations: Tashkent "
+"city,  Jizzakh , Samarkand, Fergana, Namangan, Khorezm and Surkhondaryo "
+"regions."
+
+#: .\templates\purpose.html:21
+msgid "purpose"
+msgstr "Purpose of the project"
+
+#: .\templates\purpose.html:23
+msgid "purpose-1"
+msgstr "Development of young people's English speaking"
+
+#: .\templates\purpose.html:24
+msgid "purpose-2"
+msgstr "Formation of young people's opinions within current topics"
+
+#: .\templates\purpose.html:32
+msgid "purpose-3"
+msgstr "Creating a networking space for young people with the same goals"
+
+#: .\templates\purpose.html:33
+msgid "purpose-4"
+msgstr "Development of debating skills in young people"
+
+#~ msgid "news"
+#~ msgstr "News"
+
+#~ msgid "uz_lang"
+#~ msgstr "O'zbek tili"
+
+#~ msgid "en_lang"
+#~ msgstr "English"

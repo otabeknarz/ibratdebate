@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
+<link rel="stylesheet" href="{%  static 'css/responsive/auth/login.css' %}">
+{% endblock %}
+
+{% block title %}Kirish{% endblock %}
+
+{% block content %}
+<main>
+    <div class="form">
+        <h1>Kirish</h1>
+        <form action="{% url 'core:login' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <input type="text" placeholder="Username" name="username">
+            </label>
+            <label>
+                <input type="password" placeholder="Password" name="password">
+            </label>
+            <p>Hali ro'yxatdan o'tmaganmisiz? <a href="{% url 'core:register' %}">bu yerdan</a> ro'yxatdan o'tishingiz mumkin</p>
+            <button type="submit" class="primary">Kirish</button>
+        </form>
+    </div>
+</main>
+{% endblock %}

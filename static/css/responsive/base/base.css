@@ -1,0 +1,26 @@
+@media screen and (max-width: 1200px) {
+    main {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .space-div {
+        height: 90px;
+    }
+
+    main * {
+        font-size: 1.25rem;
+        line-height: 1.5;
+    }
+
+    button {
+        font-size: 0.75rem;
+    }
+}

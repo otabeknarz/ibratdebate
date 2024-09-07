@@ -1,0 +1,45 @@
+footer {
+  margin-top: 60px;
+  padding: 40px 0;
+  background-color: white;
+}
+
+footer .container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 1140px;
+}
+
+footer .container .navs {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-align: start;
+}
+
+footer .navs .logo img {
+  height: 50px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+footer .navs ul li {
+  list-style: none;
+  margin: 15px 0;
+}
+
+footer .navs ul li.title {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+footer .navs ul li a {
+  text-decoration: none;
+}
+
+footer p {
+  margin-top: 60px;
+  color: #313131;
+  text-align: center;
+}

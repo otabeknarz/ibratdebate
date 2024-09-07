@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}Loyihadan maqsad{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/purpose.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive/purpose.css' %}">
+{% endblock %}
+{% block content %}
+<!-- Purpose section -->
+<section class="container">
+<div class="desc">
+    <h3><i style="color: #F2E16D;" class="fa-solid fa-bolt"></i>{% trans "moto" %}</h3>
+    <h1 class="welcome-text">
+      {% trans 'welcome-text' %}
+    </h1>
+</div>
+<div class="purpose">
+  <div class="first-section">
+    <div class="desc">
+      <h2>{% trans "purpose" %}</h2>
+      <ul>
+        <li>{% trans "purpose-1" %}</li>
+        <li>{% trans "purpose-2" %}</li>
+      </ul>
+    </div>
+    <img src="{% static 'images/mic-dynamic-premium.png' %}" alt="LOGO">
+  </div>
+  <div class="second-section">
+    <img src="{% static 'images/ibratboy.png' %}" alt="LOGO">
+    <ul class="desc">
+      <li>{% trans "purpose-3" %}</li>
+      <li>{% trans "purpose-4" %}</li>
+    </ul>
+  </div>
+</div>
+</section>
+<!-- End Purpose section -->
+{% endblock %}

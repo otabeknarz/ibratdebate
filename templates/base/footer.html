@@ -1,0 +1,46 @@
+<footer id="footer">
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive/base/footer.css' %}">
+{% endblock %}
+
+<div class="container">
+  <div class="navs">
+    <div class="logo">
+      <img src="{% static 'images/logo.png' %}" alt="LOGO">
+    </div>
+    <ul>
+      <li class="title">Asosiy</li>
+      <li>
+        <a href="#">Loyiha haqida</a>
+      </li>
+      <li>
+        <a href="#map">Debat klublarimiz</a>
+      </li>
+      <li>
+        <a href="#news">Yangiliklar</a>
+      </li>
+      <li>
+        <a href="#team">Jamoa</a>
+      </li>
+    </ul>
+    <ul>
+      <li class="title">Biz ijtimoiy tarmoqlarda</li>
+      <li>
+        <a href="https://www.instagram.com/ibrat.debate/"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      </li>
+      <li>
+	<a href="https://t.me/ibratdebate"><i class="fa-brands fa-telegram"></i> Telegram</a>
+      </li>
+      <li>
+	<a href="https://www.linkedin.com/company/ibratdebate/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </li>
+      <li>
+	<a href="https://t.me/ibratdebate_bot"><i class="fa-solid fa-robot"></i> Telegram bot</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</footer>

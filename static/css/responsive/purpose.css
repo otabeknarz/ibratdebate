@@ -1,0 +1,58 @@
+@media screen and (max-width: 576px) {
+    /* Purpose section */
+
+    section.container {
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .desc h3 {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .desc h1.welcome-text {
+        font-size: 1.25rem;
+        line-height: 1.75;
+        letter-spacing: 0.5px;
+    }
+
+    .purpose {
+        margin: 0;
+        padding: 0;
+    }
+
+    .purpose .first-section .desc,
+    .purpose .second-section .desc {
+        padding: 0;
+        margin: 0;
+        font-size: 0.75rem;
+        line-height: 1.75;
+    }
+
+    .purpose .first-section .desc h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .purpose .first-section,
+    .purpose .second-section {
+        flex-direction: column-reverse;
+        margin: 0;
+    }
+
+    .purpose li {
+        list-style: none;
+        margin: 20px 0;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid #222;
+    }
+
+    .purpose img {
+        width: 250px;
+        margin: 20px;
+    }
+
+    /* End Purpose section */
+}
