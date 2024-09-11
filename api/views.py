@@ -14,7 +14,9 @@ def create_people(request):
     phone_number = request.data["phone_number"]
 
     try:
-        people = People.objects.create(ID=ID, name=name, english_level=english_level, phone_number=phone_number)
+        people = People.objects.create(
+            ID=ID, name=name, english_level=english_level, phone_number=phone_number
+        )
         serializer = PeopleSerializer(people)
     except Exception as e:
         return Response(
