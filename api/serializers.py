@@ -5,13 +5,13 @@ from rest_framework import serializers
 class PeopleIDSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
-        fields = "ID",
+        fields = ("ID",)
 
 
 class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
-        fields = "ID", "name", "phone_number", "debates"
+        fields = "ID", "name", "english_level", "phone_number", "debates"
 
 
 class LocationSerializer(serializers.ModelSerializer):

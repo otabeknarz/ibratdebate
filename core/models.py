@@ -1,8 +1,5 @@
-import uuid
-
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils.text import slugify
 
 
 class BaseModel(models.Model):
@@ -60,8 +57,19 @@ class Account(BaseModel):
 
 
 class People(BaseModel):
+    class EnglishLevels(models.TextChoices):
+        A1 = "A1", "A1"
+        A2 = "A2", "A2"
+        B1 = "B1", "B1"
+        B2 = "B2", "B2"
+        C1 = "C1", "C1"
+        C2 = "C2", "C2"
+
     ID = models.CharField(max_length=40, primary_key=True, unique=True)
     name = models.CharField(max_length=255)
+    english_level = models.CharField(
+        max_length=2, null=True, blank=True, choices=EnglishLevels.choices
+    )
     phone_number = models.CharField(max_length=40)
     debates = models.ManyToManyField(Debate, related_name="people")
 

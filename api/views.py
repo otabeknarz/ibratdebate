@@ -10,10 +10,11 @@ from .serializers import PeopleSerializer, DebateSerializer, PeopleIDSerializer
 def create_people(request):
     ID = request.data["ID"]
     name = request.data["name"]
+    english_level = request.data["english_level"]
     phone_number = request.data["phone_number"]
 
     try:
-        people = People.objects.create(ID=ID, name=name, phone_number=phone_number)
+        people = People.objects.create(ID=ID, name=name, english_level=english_level, phone_number=phone_number)
         serializer = PeopleSerializer(people)
     except Exception as e:
         return Response(
@@ -65,7 +66,9 @@ def register_people_to_debate(request):
         debate_serializer = DebateSerializer(debate)
 
     except Exception as e:
-        return Response({"status": "false", "detail": str(e)},)
+        return Response(
+            {"status": "false", "detail": str(e)},
+        )
 
     return Response(
         {

@@ -13,7 +13,11 @@ from .models import Account, People, Debate
 def home(request):
     accounts = Account.objects.all()[:10]
     upcoming_debates = Debate.objects.filter(is_expired=False)
-    return render(request, "home.html", {"accounts": accounts, "upcoming_debates": upcoming_debates})
+    return render(
+        request,
+        "home.html",
+        {"accounts": accounts, "upcoming_debates": upcoming_debates},
+    )
 
 
 def purpose(request):
