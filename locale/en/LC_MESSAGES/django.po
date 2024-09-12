@@ -89,6 +89,21 @@ msgstr "Ferghana region"
 msgid "surkhondaryo"
 msgstr "Surkhondaryo region"
 
+msgid "namangan"
+msgstr "Namangan region"
+
+msgid "andijan"
+msgstr "Andijon region"
+
+msgid "khorezm"
+msgstr "Xorazm region"
+
+msgid "kashkadarya"
+msgstr "Qashqadaryo region"
+
+msgid "karakalpakstan"
+msgstr "Qoraqalpog'iston region"
+
 #: .\templates\home.html:226
 msgid "previous-debates"
 msgstr "Previous debates"

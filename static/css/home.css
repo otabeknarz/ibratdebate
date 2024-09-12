@@ -29,7 +29,6 @@ main .desc h1.welcome-text {
 /* Participate button */
 
 a.participate.primary {
-  text-align: center;
   font-size: 1.25rem;
 }
 
@@ -203,11 +202,13 @@ a.participate.primary {
 .map ul {
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .map ul li {
   display: inline-block;
+  margin-bottom: 20px;
 }
 
 /* End Map section */

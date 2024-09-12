@@ -26,9 +26,9 @@
     <!-- End Welcome section -->
 
     <!-- Participate button -->
-    <div class="participate" style="text-align: center;">
+    <div class="participate">
       <a href="{% url 'core:purpose' %}" target="_blank" class="secondary">{% trans "more-details" %}</a>
-      <a href="https://t.me/ibratdebate_bot" class="primary">{% trans "participate" %}</a>
+      <a href="https://t.me/ibratdebate_bot" target="_blank" class="primary">{% trans "participate" %}</a>
     </div>  
     <!-- End Participate button -->
 
@@ -44,7 +44,7 @@
               <div class="upcoming-debate-card">
                   <div class="info">
                       <div class="location">
-                          <h2>{{ upcoming_debate.location|truncatechars:12 }}</h2>
+                          <h2>{{ upcoming_debate.location|truncatechars:10 }}</h2>
                       </div>
                   </div>
                   <div class="more-info">
@@ -176,6 +176,11 @@
         <li>{% trans "samarkand" %}</li>
         <li>{% trans "ferghana" %}</li>
         <li>{% trans "surkhondaryo" %}</li>
+        <li>{% trans "namangan" %}</li>
+        <li>{% trans "andijan" %}</li>
+        <li>{% trans "khorezm" %}</li>
+        <li>{% trans "kashkadarya" %}</li>
+        <li>{% trans "karakalpakstan" %}</li>
       </ul>
     </div>
     <!-- End Map section -->

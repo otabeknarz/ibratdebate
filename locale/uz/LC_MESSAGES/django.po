@@ -91,6 +91,22 @@ msgstr "Farg'ona viloyati"
 msgid "surkhondaryo"
 msgstr "Surxondaryo viloyati"
 
+msgid "namangan"
+msgstr "Namangan viloyati"
+
+msgid "andijan"
+msgstr "Andijon viloyati"
+
+msgid "khorezm"
+msgstr "Xorazm viloyati"
+
+msgid "kashkadarya"
+msgstr "Qashqadaryo viloyati"
+
+msgid "karakalpakstan"
+msgstr "Qoraqalpog'iston viloyati"
+
+
 #: .\templates\home.html:226
 msgid "previous-debates"
 msgstr "Bo'lib o'tgan debatelar"
