@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ debate.title }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/previous_debate.css' %}">
+{#<link rel="stylesheet" href="{% static 'css/responsive/previous_debate.css' %}">#}
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="info">
+            <h1>{{ previous_debate.name }}</h1>
+            <p>{{ previous_debate.description|safe }}</p>
+        </div>
+    </section>
+{% endblock %}

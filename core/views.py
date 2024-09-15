@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.utils.translation import gettext as _
 
 from .models import Account, People, Debate
 
@@ -13,15 +12,24 @@ from .models import Account, People, Debate
 def home(request):
     accounts = Account.objects.all()[:10]
     upcoming_debates = Debate.objects.filter(is_expired=False)
+    previous_debates = Debate.objects.filter(is_expired=True)
     return render(
         request,
         "home.html",
-        {"accounts": accounts, "upcoming_debates": upcoming_debates},
+        {"accounts": accounts, "upcoming_debates": upcoming_debates, "previous_debates": previous_debates},
     )
 
 
 def purpose(request):
     return render(request, "purpose.html")
+
+
+def previous_debate(request, debate_id):
+    try:
+        previous_debate_obj = Debate.objects.get(id=debate_id)
+    except Exception as e:
+        return HttpResponse("Debate not found: ", str(e))
+    return render(request, "previous_debate.html", {"previous_debate": previous_debate_obj})
 
 
 def login_view(request):

@@ -1,5 +1,6 @@
 <footer id="footer">
 {% load static %}
+{% load i18n %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/base/footer.css' %}">
@@ -13,18 +14,10 @@
     </div>
     <ul>
       <li class="title">Asosiy</li>
-      <li>
-        <a href="#">Loyiha haqida</a>
-      </li>
-      <li>
-        <a href="#map">Debat klublarimiz</a>
-      </li>
-      <li>
-        <a href="#news">Yangiliklar</a>
-      </li>
-      <li>
-        <a href="#team">Jamoa</a>
-      </li>
+      <li><a href="#">{% trans "about-project" %}</a></li>
+      <li><a href="#map">{% trans "debate-clubs" %}</a></li>
+      <li><a href="#team">{% trans "team" %}</a></li>
+      <li><a href="#faq">{% trans "faq" %}</a></li>
     </ul>
     <ul>
       <li class="title">Biz ijtimoiy tarmoqlarda</li>

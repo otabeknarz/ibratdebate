@@ -25,6 +25,8 @@
   <button class="primary">
       {% if current_language == "uz" %}
       <img src="{% static "images/uz-flag.svg" %}" alt="uz-flag"> <span>O'zbekcha</span>
+      {% elif current_language == "ru" %}
+      <img style="width: 24px; height: 24px; border-radius: 4px" src="{% static "images/ru-flag.png" %}" alt="en-flag"> <span>Русский</span>
       {% else %}
       <img src="{% static "images/en-flag.svg" %}" alt="en-flag"> <span>English</span>
       {% endif %}
@@ -34,6 +36,7 @@
       <ul>
           <li id="en"><a href="/uz/"><img src="{% static "images/uz-flag.svg" %}" alt="uz-flag"> <span>O'zbekcha</span></a></li>
           <li id="uz"><a href="/en/"><img src="{% static "images/en-flag.svg" %}" alt="en-flag"> <span>English</span></a></li>
+          <li id="ru"><a href="/ru/"><img style="width: 24px; height: 24px; border-radius: 4px" src="{% static "images/ru-flag.png" %}" alt="en-flag"> <span>Русский</span></a></li>
       </ul>
   </div>
 

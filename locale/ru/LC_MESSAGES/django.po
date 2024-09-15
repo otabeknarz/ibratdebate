@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-15 23:27+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\ibratdebate\settings.py:118
+msgid "O'zbek tili"
+msgstr ""
+
+#: .\ibratdebate\settings.py:119
+msgid "English"
+msgstr ""
+
+#: .\ibratdebate\settings.py:120
+msgid "Русский"
+msgstr ""
+
+#: .\templates\base\header.html:18
+msgid "about-project"
+msgstr "О проекте"
+
+#: .\templates\base\header.html:19 .\templates\home.html:84
+msgid "debate-clubs"
+msgstr "Наши клубы дебатов"
+
+#: .\templates\base\header.html:20 .\templates\home.html:260
+msgid "team"
+msgstr "Команда"
+
+#: .\templates\base\header.html:21
+msgid "faq"
+msgstr "FAQ"
+
+#: .\templates\home.html:20 .\templates\purpose.html:13
+msgid "moto"
+msgstr "Мы проводим дебаты на английском языке в разных регионах нашей страны."
+
+#: .\templates\home.html:22 .\templates\purpose.html:15
+msgid "welcome-text"
+msgstr "Чтобы молодежь научилась воспринимать других, эффективно размышлять и правильно высказывать свое мнение “Ibrat farzandlari” организовал Ibrat Debate."
+
+#: .\templates\home.html:30
+msgid "more-details"
+msgstr "Дополнительная информация"
+
+#: .\templates\home.html:31
+msgid "participate"
+msgstr "Участвовать в дебатах"
+
+#: .\templates\home.html:39
+msgid "upcoming-debates"
+msgstr "Ближайшие дебаты"
+
+#: .\templates\home.html:172
+msgid "debates-nowadays"
+msgstr "На данный момент у нас доступны дебаты в этих регионах и вы можете принять в них участие."
+
+#: .\templates\home.html:174
+msgid "tashkent"
+msgstr "Город Ташкент"
+
+#: .\templates\home.html:175
+msgid "jizzakh"
+msgstr "Джизакская область"
+
+#: .\templates\home.html:176
+msgid "samarkand"
+msgstr "Самаркандская область"
+
+#: .\templates\home.html:177
+msgid "ferghana"
+msgstr "Ферганская область"
+
+#: .\templates\home.html:178
+msgid "surkhondaryo"
+msgstr "Сурхандарьинская область"
+
+#: .\templates\home.html:179
+msgid "namangan"
+msgstr ""
+
+#: .\templates\home.html:180
+msgid "andijan"
+msgstr ""
+
+#: .\templates\home.html:181
+msgid "khorezm"
+msgstr ""
+
+#: .\templates\home.html:182
+msgid "kashkadarya"
+msgstr ""
+
+#: .\templates\home.html:183
+msgid "karakalpakstan"
+msgstr ""
+
+#: .\templates\home.html:190
+msgid "previous-debates"
+msgstr "Прошедшие дебаты"
+
+#: .\templates\home.html:202 .\templates\home.html:214
+#: .\templates\home.html:226 .\templates\home.html:238
+#: .\templates\home.html:250
+msgid "details"
+msgstr "Подробнее"
+
+#: .\templates\home.html:254 .\templates\home.html:277
+msgid "see-more"
+msgstr "Прошедшие все"
+
+#: .\templates\home.html:284
+msgid "faq-title"
+msgstr "Часто задаваемые вопросы"
+
+#: .\templates\home.html:285
+msgid "faq-subtitle"
+msgstr "Мы оставили ответы на вопросы которые могут вас заинтересовать"
+
+#: .\templates\home.html:290
+msgid "faq-q-1"
+msgstr "Что нужно сделать чтобы принять участие в дебатах Ibrat?"
+
+#: .\templates\home.html:293
+msgid "faq-a-1"
+msgstr "Для участие в дебатах Ibrat необходимо зарегистрироваться через  @ibratdebate_bot в приложении Telegram после объявления даты сессии."
+
+#: .\templates\home.html:297
+msgid "faq-q-2"
+msgstr "Какой уровень английского языка у меня должен быть для участия в дебатах?"
+
+#: .\templates\home.html:300
+msgid "faq-a-2"
+msgstr "Для участия в дебатах ваш уровень английского языка должен быть не ниже В1. Если ваш уровень ниже, вы можете участвовать в качестве слушателя. "
+
+#: .\templates\home.html:304
+msgid "faq-q-3"
+msgstr "Что нужно сделать, чтобы получить сертификат Best Debater?"
+
+#: .\templates\home.html:307
+msgid "faq-a-3"
+msgstr "Для того, чтобы получить сертификат Best Debater, необходимо активно участвовать в ходе сессии, уметь проводить лучшие аргументы и контраргументы, а также проявлять лидерские качества."
+
+#: .\templates\home.html:311
+msgid "faq-q-4"
+msgstr "Где пройдут дебаты?"
+
+#: .\templates\home.html:314
+msgid "faq-a-4"
+msgstr "На данный момент дебатные сессии проводятся в 7-ми регионах нашей страны. В городе Ташкент, Джизакской, Самаркандской, Ферганской, Наманганской, Хорезмской и Сурхандарьинской областях."
+
+#: .\templates\purpose.html:21
+msgid "purpose"
+msgstr "Цели проекта"
+
+#: .\templates\purpose.html:23
+msgid "purpose-1"
+msgstr "Развить речь у молодежи на английском языке"
+
+#: .\templates\purpose.html:24
+msgid "purpose-2"
+msgstr "Формировать мнения у молодежи в рамках актуальных тем"
+
+#: .\templates\purpose.html:32
+msgid "purpose-3"
+msgstr "Создать networking zone  для молодых людей с одинаковыми целями "
+
+#: .\templates\purpose.html:33
+msgid "purpose-4"
+msgstr "Развитие дебатных навыков у молодежи "

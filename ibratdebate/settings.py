@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # 3rd party libs
     "easy_thumbnails",
     "rest_framework",
+    "modeltranslation",
     # Local apps
     "api.apps.ApiConfig",
     "core.apps.CoreConfig",
@@ -117,6 +118,7 @@ from django.utils.translation import gettext_lazy as _
 LANGUAGES = (
     ("uz", _("O'zbek tili")),
     ("en", _("English")),
+    ("ru", _("Русский")),
 )
 
 LOCALE_PATHS = [BASE_DIR / "locale"]
