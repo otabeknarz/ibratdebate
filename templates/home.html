@@ -197,6 +197,7 @@
       <swiper-container class="mySwiper prev-debate-slider" space-between="30"
       centered-slides="false" autoplay-delay="1500" autoplay-disable-on-interaction="false">
           {% for previous_debate in previous_debates %}
+              {% if previous_debate.name %}
               <swiper-slide>
               <div class="prev-debate-card">
               <div class="top">
@@ -209,6 +210,7 @@
               <a href="{% url 'core:previous_debate' previous_debate.pk %}" class="secondary">{% trans "details" %}</a>
               </div>
             </swiper-slide>
+              {% endif %}
           {% endfor %}
       </swiper-container>
       <button class="primary">{% trans "see-more" %}</button>
