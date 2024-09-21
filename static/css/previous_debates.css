@@ -1,11 +1,11 @@
 .previous-debates {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px;
 }
 
 .previous-debates .debate-card {
-    width: 24%;
+    width: 20%;
     height: 400px;
     display: flex;
     flex-direction: column;
