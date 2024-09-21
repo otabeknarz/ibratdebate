@@ -32,6 +32,11 @@ def previous_debate(request, debate_id):
     return render(request, "previous_debate.html", {"previous_debate": previous_debate_obj})
 
 
+def team_view(request):
+    team_members = Account.objects.all()
+    return render(request, "team.html", {"team_members": team_members})
+
+
 def login_view(request):
     if request.method == "POST":
         username = request.POST["username"]

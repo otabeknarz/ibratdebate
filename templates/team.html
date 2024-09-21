@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}
+Jamoamiz a'zolari
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/team.css' %}">
+{% endblock %}
+{% block content %}
+<section id="team">
+    <div class="container team text">
+        <h1>Jamoamiz a'zolari</h1>
+    </div>
+    <div class="container team">
+            {% for team_member in team_members %}
+          <div class="member-card">
+            <img src="{% thumbnail team_member.image 0x600 %}" alt="ACCOUNT IMAGE">
+            <div class="desc">
+                <h2>{{ team_member.user.first_name }} {{ team_member.user.last_name }}</h2>
+                <p>{{ team_member.role }}</p>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
