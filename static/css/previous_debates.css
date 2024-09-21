@@ -1,0 +1,44 @@
+.previous-debates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.previous-debates .debate-card {
+    width: 25%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.previous-debates .debate-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.previous-debates .debate-card .desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: start;
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 576px) {
+    #previous-debates .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .previous-debates .debate-card {
+        width: 100%;
+        height: 400px;
+        margin: 20px 0;
+    }
+    .previous-debates .debate-card img {
+        height: 300px;
+    }
+}

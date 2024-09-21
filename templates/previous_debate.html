@@ -11,6 +11,7 @@
 
 {% block content %}
     <section class="container">
+        <img src="{{ previous_debate.image.url }}" alt="Prev Image">
         <div class="info">
             <h1>{{ previous_debate.name }}</h1>
             <p>{{ previous_debate.description|safe }}</p>

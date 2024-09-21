@@ -167,28 +167,6 @@ a.participate.primary {
   padding: 0;
 }
 
-/* Regions */
-
-.map svg path#UZTK,
-.map svg path#UZTO {
-  fill: rgb(90, 90, 90);
-  height: 200px;
-}
-
-.map svg path#UZFA {
-  fill: rgba(90, 90, 90, 0.9);
-}
-
-.map svg path#UZSA {
-  fill: rgba(90, 90, 90, 0.6);
-}
-
-.map svg path#UZSU {
-  fill: rgba(90, 90, 90, 0.7)
-}
-
-/* End Regions */
-
 .map svg path:hover {
   opacity: 0.8;
   cursor: pointer;
@@ -211,6 +189,7 @@ a.participate.primary {
 .map ul li {
   display: inline-block;
   margin-bottom: 20px;
+  width: 19%;
 }
 
 /* End Map section */
@@ -233,6 +212,7 @@ a.participate.primary {
   padding: 15px;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .prev-debate-card .top {

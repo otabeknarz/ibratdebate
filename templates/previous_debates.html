@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}
+Bo'lib o'tgan debatlar
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/previous_debates.css' %}">
+{% endblock %}
+{% block content %}
+<section id="previous-debates">
+    <div class="container text">
+        <h1>Bo'lib o'tgan debatlar</h1>
+    </div>
+    <div class="container">
+        <div class="previous-debates">
+                {% for debate in previous_debates %}
+                {% if debate.name %}
+                <div class="debate-card">
+                    <img src="{% thumbnail debate.image 0x600 %}" alt="DEBATE IMAGE">
+                    <div class="desc">
+                        <h2>{{ debate.name|truncatewords:"3" }}</h2>
+                        <p>{{ debate.description|truncatewords:"5" }}</p>
+                        <a href="{% url 'core:previous_debate' debate.id %}" class="primary">Batafsil</a>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+</section>
+{% endblock %}

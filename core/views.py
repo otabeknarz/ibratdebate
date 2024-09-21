@@ -1,3 +1,5 @@
+import random
+
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -6,18 +8,23 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import Account, People, Debate
+from .models import Account, Debate
 
 
 def home(request):
-    accounts = Account.objects.all()[:10]
-    upcoming_debates = Debate.objects.filter(is_expired=False)
-    previous_debates = Debate.objects.filter(is_expired=True)
+    accounts = random.choices(list(Account.objects.all()), k=10 if len(Account.objects.all()) > 10 else len(Account.objects.all()))
+    upcoming_debates = Debate.objects.filter(is_expired=False)[:10]
+    previous_debates = Debate.objects.filter(is_expired=True)[:10]
     return render(
         request,
         "home.html",
         {"accounts": accounts, "upcoming_debates": upcoming_debates, "previous_debates": previous_debates},
     )
+
+
+def previous_debates_view(request):
+    previous_debates = Debate.objects.filter(is_expired=True)
+    return render(request, "previous_debates.html", {"previous_debates": previous_debates})
 
 
 def purpose(request):
