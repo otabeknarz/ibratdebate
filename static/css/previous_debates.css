@@ -5,10 +5,11 @@
 }
 
 .previous-debates .debate-card {
-    width: 25%;
+    width: 24%;
     height: 400px;
     display: flex;
     flex-direction: column;
+    margin: 40px 0;
 }
 
 .previous-debates .debate-card img {
