@@ -6,7 +6,7 @@ from rest_framework import status
 from .serializers import PeopleSerializer, DebateSerializer, PeopleIDSerializer
 
 
-@api_view(["POST"])
+@api_view(["POST", "PATCH"])
 def create_people(request):
     ID = request.data.get("ID")
     name = request.data.get("name")
