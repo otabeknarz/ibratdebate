@@ -12,19 +12,28 @@ from .models import Account, Debate
 
 
 def home(request):
-    accounts = random.choices(list(Account.objects.all()), k=10 if len(Account.objects.all()) > 10 else len(Account.objects.all()))
+    accounts = random.choices(
+        list(Account.objects.all()),
+        k=10 if len(Account.objects.all()) > 10 else len(Account.objects.all()),
+    )
     upcoming_debates = Debate.objects.filter(is_expired=False)[:10]
     previous_debates = Debate.objects.filter(is_expired=True)[:10]
     return render(
         request,
         "home.html",
-        {"accounts": accounts, "upcoming_debates": upcoming_debates, "previous_debates": previous_debates},
+        {
+            "accounts": accounts,
+            "upcoming_debates": upcoming_debates,
+            "previous_debates": previous_debates,
+        },
     )
 
 
 def previous_debates_view(request):
     previous_debates = Debate.objects.filter(is_expired=True)
-    return render(request, "previous_debates.html", {"previous_debates": previous_debates})
+    return render(
+        request, "previous_debates.html", {"previous_debates": previous_debates}
+    )
 
 
 def purpose(request):
@@ -36,7 +45,9 @@ def previous_debate(request, debate_id):
         previous_debate_obj = Debate.objects.get(id=debate_id)
     except Exception as e:
         return HttpResponse("Debate not found: ", str(e))
-    return render(request, "previous_debate.html", {"previous_debate": previous_debate_obj})
+    return render(
+        request, "previous_debate.html", {"previous_debate": previous_debate_obj}
+    )
 
 
 def team_view(request):
@@ -103,5 +114,11 @@ def stats(request):
     debates = Debate.objects.filter(is_expired=False)
     data = []
     for debate in debates:
-        data.append([debate, debate.people.all().count(), localtime(debate.date).strftime("%d/%m/%Y | %H:%M")])
+        data.append(
+            [
+                debate,
+                debate.people.all().count(),
+                localtime(debate.date).strftime("%d/%m/%Y | %H:%M"),
+            ]
+        )
     return render(request, "stats.html", {"data": data})
