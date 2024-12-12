@@ -64,12 +64,20 @@ class People(BaseModel):
         B = "B1-B2", "B1-B2"
         C = "C1-C2", "C1-C2"
 
+    class Ages(models.TextChoices):
+        TWELVE = "12-14", "12-14"
+        FOURTEEN = "14-16", "14-16"
+        SIXTEEN = "16-18", "16-18"
+        EIGHTEEN = "18<", "18 va undan yuqori"
+
     ID = models.CharField(max_length=40, primary_key=True, unique=True)
     name = models.CharField(max_length=255)
     english_level = models.CharField(
         max_length=5, null=True, blank=True, choices=EnglishLevels.choices
     )
+    age = models.CharField(max_length=5, null=True, blank=True, choices=Ages.choices)
     phone_number = models.CharField(max_length=40)
+    username = models.CharField(max_length=255, null=True, blank=True)
     debates = models.ManyToManyField(Debate, related_name="people")
 
     def __str__(self):
