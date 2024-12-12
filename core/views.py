@@ -104,4 +104,4 @@ def stats(request):
     data = []
     for debate in debates:
         data.append([debate, debate.people.all().count(), localtime(debate.date).strftime("%d/%m/%Y | %H:%M")])
-    return render(request, "stats.html", {"debates": debates})
+    return render(request, "stats.html", {"data": data})
