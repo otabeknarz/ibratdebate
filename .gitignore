@@ -1,6 +1,9 @@
 .idea/
 media/images/*
 db.sqlite3
+*.sql
+*.sqlite3
+*.db
 ibratdebate/.env
 ibratdebate/__pycache__/
 core/__pycache__/
