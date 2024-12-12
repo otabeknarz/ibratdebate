@@ -37,6 +37,9 @@ class Debate(BaseModel):
     def __str__(self):
         return f"{self.location.name} ({self.date})"
 
+    class Meta:
+        ordering = ["-updated_at"]
+
 
 class Account(BaseModel):
     ID = models.CharField(primary_key=True, unique=True, max_length=40)
