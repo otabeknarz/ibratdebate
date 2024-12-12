@@ -8,10 +8,15 @@ from .serializers import PeopleSerializer, DebateSerializer, PeopleIDSerializer
 
 @api_view(["POST"])
 def create_people(request):
-    ID = request.data["ID"]
-    name = request.data["name"]
-    english_level = request.data["english_level"]
-    phone_number = request.data["phone_number"]
+    ID = request.data.get("ID")
+    name = request.data.get("name")
+    if ID is None and name is None:
+        return Response(
+            {"status": "false", "detail": "ID and name is required"},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+    english_level = request.data.get("english_level")
+    phone_number = request.data.get("phone_number")
 
     try:
         people = People.objects.create(
@@ -23,9 +28,7 @@ def create_people(request):
             {"status": "false", "detail": str(e)},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
-    return Response(
-        {"status": "true", "people": serializer.data}, status=status.HTTP_201_CREATED
-    )
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(["GET"])
