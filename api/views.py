@@ -42,7 +42,7 @@ def check_people(request, people_id):
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
     return Response(
-        {"status": "true", "people": serializer.data}, status=status.HTTP_201_CREATED
+        {"status": "true", "people": serializer.data}, status=status.HTTP_200_OK
     )
 
 
