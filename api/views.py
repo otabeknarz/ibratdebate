@@ -17,10 +17,22 @@ def create_people(request):
         )
     english_level = request.data.get("english_level")
     phone_number = request.data.get("phone_number")
+    username = request.data.get("username")
+
+    people = People.objects.filter(ID=ID).first()
+    if people:
+        serializer = PeopleSerializer(people, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
 
     try:
         people = People.objects.create(
-            ID=ID, name=name, english_level=english_level, phone_number=phone_number
+            ID=ID,
+            name=name,
+            english_level=english_level,
+            phone_number=phone_number,
+            username=username,
         )
         serializer = PeopleSerializer(people)
     except Exception as e:
@@ -28,7 +40,14 @@ def create_people(request):
             {"status": "false", "detail": str(e)},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
-    return Response(serializer.data, status=status.HTTP_201_CREATED)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    else:
+        return Response(
+            {"status": "false", "detail": serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
 
 
 @api_view(["GET"])
