@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+{% block title %}Statistika{% endblock %}
+{% block css %}
+<script src="https://cdn.tailwindcss.com"></script>
+{% endblock %}
+{% block content %}
+<section class="container mx-auto px-4 py-6">
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600 border-b border-gray-200">Joylashuv</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600 border-b border-gray-200">Qatnashuvchilar soni</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600 border-b border-gray-200">Sana va vaqt</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for debate, count_members, formatted_date in data %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm text-gray-700 border-b border-gray-200">{{ debate.location }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-700 border-b border-gray-200">{{ count_members }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-700 border-b border-gray-200">{{ formatted_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

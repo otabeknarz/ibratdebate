@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.utils.timezone import localtime
 
 from .models import Account, Debate
 
@@ -97,3 +97,11 @@ def register_view(request):
         return redirect("core:home")
 
     return render(request, "auth/register.html")
+
+
+def stats(request):
+    debates = Debate.objects.filter(is_expired=False)
+    data = []
+    for debate in debates:
+        data.append([debate, debate.people.all().count(), localtime(debate.date).strftime("%d/%m/%Y | %H:%M")])
+    return render(request, "stats.html", {"debates": debates})
