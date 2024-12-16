@@ -36,7 +36,7 @@ def create_people(request):
         english_level=english_level,
         phone_number=phone_number,
     )
-    serializer = PeopleSerializer(people)
+    serializer = PeopleSerializer(data=people)
 
     if serializer.is_valid():
         serializer.save()
