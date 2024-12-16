@@ -15,8 +15,6 @@ def create_people(request):
             {"status": "false", "detail": "ID and name is required"},
             status=status.HTTP_400_BAD_REQUEST,
         )
-    english_level = request.data.get("english_level")
-    phone_number = request.data.get("phone_number")
 
     people = People.objects.filter(ID=ID)
 
@@ -25,16 +23,14 @@ def create_people(request):
             {
                 "status": "false",
                 "detail": "People with this ID already exists",
-                "people": PeopleSerializer(people.first()).data
+                "people": PeopleSerializer(data=people.first()).data
             },
             status=status.HTTP_400_BAD_REQUEST,
         )
 
     people = People.objects.create(
         ID=ID,
-        name=name,
-        english_level=english_level,
-        phone_number=phone_number,
+        name=name
     )
     serializer = PeopleSerializer(data=people)
 
