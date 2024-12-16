@@ -48,6 +48,23 @@ def create_people(request):
         )
 
 
+@api_view(["POST"])
+def update_people(request, people_id):
+    try:
+        people = People.objects.get(ID=people_id)
+        people.name = request.data.get("name", people.name)
+        people.english_level = request.data.get("english_level", people.english_level)
+        people.phone_number = request.data.get("phone_number", people.phone_number)
+        people.save()
+        serializer = PeopleSerializer(people)
+    except Exception as e:
+        return Response(
+            {"status": "false", "detail": str(e)},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        )
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 @api_view(["GET"])
 def check_people(request, people_id):
     try:
