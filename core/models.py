@@ -75,7 +75,7 @@ class People(BaseModel):
     english_level = models.CharField(
         max_length=5, null=True, blank=True, choices=EnglishLevels.choices
     )
-    phone_number = models.CharField(max_length=40)
+    phone_number = models.CharField(max_length=40, null=True, blank=True)
     debates = models.ManyToManyField(Debate, related_name="people")
 
     def __str__(self):
