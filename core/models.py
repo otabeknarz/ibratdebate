@@ -75,9 +75,7 @@ class People(BaseModel):
     english_level = models.CharField(
         max_length=5, null=True, blank=True, choices=EnglishLevels.choices
     )
-    age = models.CharField(max_length=5, null=True, blank=True, choices=Ages.choices)
     phone_number = models.CharField(max_length=40)
-    username = models.CharField(max_length=255, null=True, blank=True)
     debates = models.ManyToManyField(Debate, related_name="people")
 
     def __str__(self):
