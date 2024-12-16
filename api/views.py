@@ -23,16 +23,12 @@ def create_people(request):
             {
                 "status": "false",
                 "detail": "People with this ID already exists",
-                "people": PeopleSerializer(data=people.first()).data
+                "people": PeopleSerializer(people.first()).data
             },
             status=status.HTTP_400_BAD_REQUEST,
         )
 
-    people = People.objects.create(
-        ID=ID,
-        name=name
-    )
-    serializer = PeopleSerializer(data=people)
+    serializer = PeopleSerializer(data=request.data)
 
     if serializer.is_valid():
         serializer.save()
