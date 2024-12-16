@@ -11,7 +11,7 @@ class PeopleIDSerializer(serializers.ModelSerializer):
 class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
-        fields = "ID", "name", "english_level", "phone_number", "debates"
+        fields = "ID", "name", "english_level", "phone_number"
 
 
 class LocationSerializer(serializers.ModelSerializer):
