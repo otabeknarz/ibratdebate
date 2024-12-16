@@ -6,7 +6,7 @@ from rest_framework import status
 from .serializers import PeopleSerializer, DebateSerializer, PeopleIDSerializer
 
 
-@api_view(["POST", "PATCH"])
+@api_view(["POST"])
 def create_people(request):
     ID = request.data.get("ID")
     name = request.data.get("name")
@@ -17,29 +17,21 @@ def create_people(request):
         )
     english_level = request.data.get("english_level")
     phone_number = request.data.get("phone_number")
-    username = request.data.get("username")
 
-    people = People.objects.filter(ID=ID).first()
-    if people:
-        serializer = PeopleSerializer(people, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-
-    try:
-        people = People.objects.create(
-            ID=ID,
-            name=name,
-            english_level=english_level,
-            phone_number=phone_number,
-            username=username,
-        )
-        serializer = PeopleSerializer(people)
-    except Exception as e:
+    if People.objects.filter(ID=ID).exists():
         return Response(
-            {"status": "false", "detail": str(e)},
-            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            {"status": "false", "detail": "User with this ID already exists"},
+            status=status.HTTP_400_BAD_REQUEST,
         )
+
+    people = People.objects.create(
+        ID=ID,
+        name=name,
+        english_level=english_level,
+        phone_number=phone_number,
+    )
+    serializer = PeopleSerializer(people)
+
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -59,6 +51,11 @@ def check_people(request, people_id):
         return Response(
             {"status": "false", "detail": str(e)},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        )
+    if people.phone_number is None:
+        return Response(
+            {"status": "false", "detail": "People has not been registered yet"},
+            status=status.HTTP_400_BAD_REQUEST,
         )
     return Response(
         {"status": "true", "people": serializer.data}, status=status.HTTP_200_OK
