@@ -18,9 +18,15 @@ def create_people(request):
     english_level = request.data.get("english_level")
     phone_number = request.data.get("phone_number")
 
-    if People.objects.filter(ID=ID).exists():
+    people = People.objects.filter(ID=ID)
+
+    if people.exists():
         return Response(
-            {"status": "false", "detail": "User with this ID already exists"},
+            {
+                "status": "false",
+                "detail": "People with this ID already exists",
+                "people": PeopleSerializer(people.first()).data
+            },
             status=status.HTTP_400_BAD_REQUEST,
         )
 
