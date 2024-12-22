@@ -9,6 +9,15 @@ class PeopleAdmin(admin.ModelAdmin):
     list_filter = ("english_level",)
 
 
+@admin.register(Debate)
+class DebateAdmin(admin.ModelAdmin):
+    def number_of_people(self, obj):
+        return obj.people.count()
+
+    list_display = ("location", "date", "is_expired", "updated_at", "number_of_people")
+    search_fields = ("name", "location__name")
+    list_filter = ("location", "is_expired")
+
+
 admin.site.register(Account)
 admin.site.register(Location)
-admin.site.register(Debate)
