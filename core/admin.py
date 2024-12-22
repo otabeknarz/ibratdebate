@@ -14,7 +14,13 @@ class DebateAdmin(admin.ModelAdmin):
     def number_of_people(self, obj):
         return obj.people.count()
 
-    list_display = ("location", "date", "is_expired", "updated_at", "number_of_people")
+    def b1_b2(self, obj):
+        return obj.people.filter(english_level="B1-B2").count()
+
+    def c1_c2(self, obj):
+        return obj.people.filter(english_level="C1-C2").count()
+
+    list_display = ("location", "b1_b2", "c1_c2", "number_of_people", "is_expired", "date")
     search_fields = ("name", "location__name")
     list_filter = ("location", "is_expired")
 
