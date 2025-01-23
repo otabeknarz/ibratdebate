@@ -1,5 +1,9 @@
-from django.contrib.auth.models import User
+import os
+import uuid
+import qrcode
+from users.models import User
 from django.db import models
+from django.conf import settings
 
 
 class BaseModel(models.Model):
@@ -80,3 +84,28 @@ class People(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+def create_qr_code(id: str) -> str:
+    qr_code = qrcode.make(data=id)
+    img = qr_code.make_image(fill_color="#FB631D", back_color="white")
+    img.save(settings.BASE_DIR / f"media/images/qr_codes/{id}.png")
+    return f"images/qr_codes/{id}.png"
+
+
+class Ticket(BaseModel):
+    id = models.UUIDField(max_length=40, primary_key=True, unique=True, default=uuid.uuid4)
+    debate = models.OneToOneField(Debate, on_delete=models.CASCADE, related_name="ticket")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tickets")
+    is_used = models.BooleanField(default=False)
+    qr_code_path = models.CharField(max_length=255, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.qr_code_path = create_qr_code(self.id)
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.qr_code_path:
+            os.remove(settings.BASE_DIR / f"media/{self.qr_code_path}")
+        super().delete(*args, **kwargs)
