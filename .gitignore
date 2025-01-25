@@ -9,3 +9,4 @@ ibratdebate/__pycache__/
 core/__pycache__/
 api/__pycache__/
 .env
+.venv/
