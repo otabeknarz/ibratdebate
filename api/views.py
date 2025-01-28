@@ -1,11 +1,120 @@
 from django.shortcuts import render
-from core.models import People, Account, Debate
+from core.models import Account, Debate, Ticket
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from users.models import User, Admin, Coordinator, Seller, Account
+from users.models import User, Account
 from .serializers import DebateSerializer
-from users.serializers import AccountIdSerializer, AccountCreateSerializer, UserResponseSerializer
+from core.serializers import TicketResponseSerializer
+from users.serializers import (
+    AccountIdSerializer,
+    AccountCreateSerializer,
+    UserResponseSerializer,
+    AccountResponseSerializer,
+    AccountPatchUpdateSerializer,
+)
+
+
+@api_view(["POST"])
+def auth_user(request):
+    user = User.objects.filter(id=request.data.get("id")).first()
+    if not user:
+        serializer = AccountCreateSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+
+    if user.first_name == "" or not user.first_name:
+        return Response(
+            {
+                "registering_is_not_completed": True,
+                "what_to_update": "first_name",
+                "user": AccountResponseSerializer(user).data
+            },
+            status=400
+        )
+    elif user.phone_number == "" or not user.phone_number:
+        return Response(
+            {
+                "registering_is_not_completed": True,
+                "what_to_update": "phone_number",
+                "user": AccountResponseSerializer(user).data
+            },
+            status=400
+        )
+    elif user.english_level == "" or not user.english_level:
+        return Response(
+            {
+                "registering_is_not_completed": True,
+                "what_to_update": "english_level",
+                "user": AccountResponseSerializer(user).data
+            },
+            status=400
+        )
+    elif user.age == "" or not user.age:
+        return Response(
+            {
+                "registering_is_not_completed": True,
+                "what_to_update": "age",
+                "user": AccountResponseSerializer(user).data
+            },
+            status=400
+        )
+    else:
+        return Response(AccountResponseSerializer(user).data, status=400)
+
+
+@api_view(["PATCH"])
+def update_user(request, user_id: str):
+    user = Account.account.filter(id=user_id).first()
+    if not user:
+        return Response({"detail": f"No user found with the id {user_id}"}, status=404)
+    
+    serializer = AccountPatchUpdateSerializer(user, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(AccountResponseSerializer(user).data, status=200)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(["POST"])
+def create_user(request):
+    user = User.objects.filter(id=request.data.get("id")).first()
+    if user:
+        return Response(
+            {
+                "detail": "The user already exists with the given id",
+                "user": UserResponseSerializer(user).data,
+            },
+            status=400
+        )
+
+    serializer = AccountCreateSerializer(data=request.data)
+    if serializer.is_valid():
+        user = serializer.save(password=serializer.validated_data.get("id"))
+        return Response(UserResponseSerializer(user).data, status=201)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(["POST"])
+def get_user(request):
+    id = request.data.get("id")
+    if not id:
+        return Response({"detail": "The field id must be filled"}, status=400)
+
+    user = User.objects.filter(id=id).first()
+    if not user:
+        return Response({"detail": "There is no user with the given id"}, status=400)
+
+    return Response(UserResponseSerializer(user).data, status=200)
+
+
+@api_view(["GET"])
+def get_me(request):
+    if not request.user.is_authenticated:   
+        return Response({"detail": "You was not authenticated"}, status=401)
+    return Response(UserResponseSerializer(request.user).data, status=200)
 
 
 @api_view(["POST"])
@@ -18,9 +127,9 @@ def create_people(request):
             status=status.HTTP_400_BAD_REQUEST,
         )
 
-    user = User.objects.filter(id=id)
+    user = User.objects.filter(id=id).first()
 
-    if user.exists():
+    if user:
         return Response(
             {
                 "status": "false",
@@ -94,25 +203,13 @@ def get_debates(request):
 
 @api_view(["POST"])
 def register_people_to_debate(request):
-    try:
-        account = Account.account.get(id=request.data["people_id"])
-        debate = Debate.objects.get(pk=request.data["debate_id"])
+    account = Account.account.filter(id=request.data.get("user_id")).first()
+    debate = Debate.objects.filter(id=request.data.get("debate_id")).first()
 
-        account.debates.add(debate)
-        account.save()
-        account_serializer = UserResponseSerializer(account)
-        debate_serializer = DebateSerializer(debate)
+    if account and debate:
+        ticket = Ticket(debate=debate, user=account)
+        ticket.save()
+    else:
+        return Response({"detail": "We could not find account or debate with the given credentials"}, status=404)
 
-    except Exception as e:
-        return Response(
-            {"status": "false", "detail": str(e)},
-        )
-
-    return Response(
-        {
-            "status": "true",
-            "people": account_serializer.data,
-            "debate": debate_serializer.data,
-        },
-        status=status.HTTP_201_CREATED,
-    )
+    return Response(TicketResponseSerializer(ticket).data, status=201)
