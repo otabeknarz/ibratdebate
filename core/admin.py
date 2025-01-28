@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Account, People, Debate, Location
+from .models import Account, People, Debate, Location, Ticket
 
 
 @admin.register(People)
@@ -7,6 +7,13 @@ class PeopleAdmin(admin.ModelAdmin):
     list_display = ("ID", "name", "english_level", "phone_number", "created_at")
     search_fields = ("ID", "name", "english_level", "phone_number")
     list_filter = ("english_level",)
+
+
+@admin.register(Ticket)
+class TicketAdmin(admin.ModelAdmin):
+    list_display = ("id", "user", "debate", "is_used", "created_at")
+    search_fields = ("id", "user", "debate")
+    list_filter = ("is_used", "debate",)
 
 
 @admin.register(Debate)

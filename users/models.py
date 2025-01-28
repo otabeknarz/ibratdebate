@@ -41,15 +41,13 @@ class User(AbstractUser):
     groups = None
     user_permissions = None
 
+    USERNAME_FIELD = "username"
+
     def save(self, *args, **kwargs):
         if not self.pk:
-            if not self.username:
-                self.username = self.id
             if self.phone_number:
                 if "+" in self.phone_number:
                     self.phone_number = self.phone_number.replace("+", "")
-                if not self.username:
-                    self.username = self.phone_number
 
         super().save(*args, **kwargs)
 

@@ -13,12 +13,43 @@ class AccountCreateSerializer(serializers.ModelSerializer):
         model = Account
         fields = (
             "id",
+            "username",
             "first_name",
             "last_name",
             "profile_picture",
             "phone_number",
+            "english_level",
             "age",
-            "english_level"
+        )
+        extra_kwargs = {
+            "id": {"required": True},
+            "username": {"required": True}
+        }
+
+class AccountPatchUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = (
+            "first_name",
+            "username",
+            "phone_number",
+            "english_level",
+            "age",
+        )
+
+
+class AccountResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = (
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "profile_picture",
+            "phone_number",
+            "english_level",
+            "age",
         )
 
 
@@ -27,11 +58,14 @@ class UserResponseSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             "id",
+            "username",
             "first_name",
             "last_name",
             "profile_picture",
             "phone_number",
-            "age",
             "english_level",
+            "age",
             "role",
+            "from_group",
+            "created_at",
         )

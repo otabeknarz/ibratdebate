@@ -10,7 +10,17 @@ class UserAdmin(admin.ModelAdmin):
     list_editable = ("role", "from_group")
     fieldsets = (
         ("Asosiy ma'lumotlar", {"fields": ("id", "username", "password")}),
-        ("Qo'shimcha ma'lumotlar", {"fields": ("email", "phone_number", "profile_picture", "role", "from_group")}),
+        ("Qo'shimcha ma'lumotlar", {"fields": (
+            "first_name",
+            "last_name",
+            "email",
+            "phone_number",
+            "english_level",
+            "age",
+            "profile_picture",
+            "role",
+            "from_group",
+        )}),
         ("Sanalar", {"fields": ("created_at", "updated_at")}),
     )
     add_fieldsets = (

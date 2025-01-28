@@ -4,6 +4,9 @@ import qrcode
 from users.models import User
 from django.db import models
 from django.conf import settings
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class BaseModel(models.Model):
@@ -88,24 +91,27 @@ class People(BaseModel):
 
 def create_qr_code(id: str) -> str:
     qr_code = qrcode.make(data=id)
-    img = qr_code.make_image(fill_color="#FB631D", back_color="white")
-    img.save(settings.BASE_DIR / f"media/images/qr_codes/{id}.png")
+    qr_code.save(settings.BASE_DIR / f"media/images/qr_codes/{id}.png")
     return f"images/qr_codes/{id}.png"
 
 
 class Ticket(BaseModel):
     id = models.UUIDField(max_length=40, primary_key=True, unique=True, default=uuid.uuid4)
-    debate = models.OneToOneField(Debate, on_delete=models.CASCADE, related_name="ticket")
+    debate = models.ForeignKey(Debate, on_delete=models.CASCADE, related_name="tickets")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tickets")
     is_used = models.BooleanField(default=False)
     qr_code_path = models.CharField(max_length=255, null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        if not self.pk:
-            self.qr_code_path = create_qr_code(self.id)
+        # Generate QR code if it hasn't been generated yet
+        if not self.qr_code_path:
+            self.qr_code_path = create_qr_code(str(self.id))
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
         if self.qr_code_path:
-            os.remove(settings.BASE_DIR / f"media/{self.qr_code_path}")
+            try:
+                os.remove(settings.BASE_DIR / f"media/{self.qr_code_path}")
+            except Exception as e:
+                logger.error(r)
         super().delete(*args, **kwargs)
