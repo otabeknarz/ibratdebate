@@ -33,7 +33,7 @@ class User(AbstractUser):
     role = models.IntegerField(choices=Role.choices, default=base_role)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    email = models.EmailField(unique=True, null=True, blank=True)
+    email = models.EmailField(unique=False, null=True, blank=True)
 
     english_level = models.CharField(max_length=5, null=True, blank=True, choices=EnglishLevels.choices)
     age = models.CharField(max_length=5, null=True, blank=True, choices=Ages.choices)
