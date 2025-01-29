@@ -42,6 +42,7 @@ class User(AbstractUser):
     user_permissions = None
 
     USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = []
 
     def save(self, *args, **kwargs):
         if not self.pk:
