@@ -20,6 +20,8 @@ class UserAdmin(admin.ModelAdmin):
             "profile_picture",
             "role",
             "from_group",
+            "is_staff",
+            "is_superuser",
         )}),
         ("Sanalar", {"fields": ("created_at", "updated_at")}),
     )
