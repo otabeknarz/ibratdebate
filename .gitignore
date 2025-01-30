@@ -5,8 +5,9 @@ db.sqlite3
 *.sqlite3
 *.db
 ibratdebate/.env
-ibratdebate/__pycache__/
-core/__pycache__/
-api/__pycache__/
+ibratdebate/__pycache__/*
+core/__pycache__/*
+api/__pycache__/*
+users/__pychache__/*
 .env
 .venv/
