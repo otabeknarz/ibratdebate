@@ -6,6 +6,7 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 <link rel="stylesheet" href="{% static 'css/responsive/home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock %}
 
 {% block title %}Ibrat Debate{% endblock %}
@@ -278,6 +279,10 @@
     </div>
     <!-- End FAQ section -->
   </main>
+    
+{% block js %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+{% endblock %}
 
 
 {% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Ibrat Debate | Qr Code Scanner{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <style>
+    .input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 16px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 8px;
+        color: #333;
+        font-size: 1rem;
+        font-family: Inter, sans-serif;
+    }
+    </style>
+    <main>
+        <h3 style="font-size: 1.25rem">ID: {{ user.id }}</h3>
+        <h3 style="font-size: 1.25rem">Username: @{{ user.username }}</h3>
+        <h3 style="font-size: 1.25rem">Phone number: {{ user.phone_number }}</h3>
+        <hr>
+        {% if error %}
+            <h3 style="font-size: 2rem; color: red">{{ error_message }}</h3>
+        {% endif %}
+        <form method="post" action="" style="margin: 20px 0;">
+            {% csrf_token %}
+            <label>
+                <span style="font-size: 1rem">Enter QrCode data here:</span>
+                <input class="input" type="text" name="qr_code_data" placeholder="Enter the result from the qr code">
+            </label>
+            <button class="primary" type="submit">Yuborish</button>
+        </form>
+        <hr>
+        {% if success %}
+            <h3 style="font-size: 1.25rem; color: green">Username: @{{ debater.username }}</h3>
+            <h3 style="font-size: 1.25rem; color: green">Name: {{ debater.first_name }}</h3>
+            <h3 style="font-size: 1.25rem; color: green">English Level: {{ debater.english_level }}</h3>
+            <h3 style="font-size: 1.25rem; color: green">Age: {{ debater.age }}</h3>
+            <h3 style="font-size: 1.25rem; color: green">Debate Location: {{ ticket.debate.location.name }}</h3>
+            <h3 style="font-size: 1.75rem; color: green">Status: Accepted</h3>
+        {% endif %}
+        <hr>
+
+    </main>
+{% endblock %}

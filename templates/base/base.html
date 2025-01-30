@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'css/responsive/base/base.css' %}">
     {% block css %}
     {% endblock %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 {% include 'base/header.html' %}
@@ -20,7 +19,10 @@
 {% endblock %}
 
 {% include 'base/footer.html' %}
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+{% block js %}
+{% endblock %}
+
 <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

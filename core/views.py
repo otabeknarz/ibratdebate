@@ -3,12 +3,12 @@ import random
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.core.files.storage import FileSystemStorage
+from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.utils.timezone import localtime
+import uuid
 
-from .models import Account, Debate
+from .models import Account, Debate, Ticket, User
 
 
 def home(request):
@@ -59,15 +59,16 @@ def login_view(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        try:
-            user = User.objects.get(username=username)
-            if user.check_password(password):
-                login(request, user=user)
-                return redirect("core:home")
-            else:
-                return redirect("core:login")
 
-        except User.DoesNotExist:
+        user = get_user_model().objects.filter(username=username).first()
+
+        if not user:
+            return redirect("core:login")
+
+        if user.check_password(password):
+            login(request, user=user)
+            return redirect("core:home")
+        else:
             return redirect("core:login")
 
     return render(request, "auth/login.html")
@@ -77,37 +78,6 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect("core:login")
-
-
-def register_view(request):
-    if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
-        first_name = request.POST["first_name"]
-        last_name = request.POST["last_name"]
-        email = request.POST["email"]
-        role = request.POST["role"]
-        image = request.FILES["image"]
-        fs = FileSystemStorage()
-
-        # # save the image on MEDIA_ROOT folder
-        # file_name = fs.save(username+"."+image.name.split(".")[-1], image)
-
-        try:
-            user = User.objects.create(
-                username=username,
-                email=email,
-                password=password,
-                first_name=first_name,
-                last_name=last_name,
-            )
-            Account.objects.create(user=user, role=role, image=image)
-        except Exception as error:
-            return HttpResponse(error)
-
-        return redirect("core:home")
-
-    return render(request, "auth/register.html")
 
 
 def stats(request):
@@ -122,3 +92,32 @@ def stats(request):
             ]
         )
     return render(request, "stats.html", {"data": data})
+
+
+def qr_code_scanner_view(request):
+    if request.method == "POST" and request.user.is_authenticated:
+        if request.user.role not in (1, 2):
+            return redirect("core:home")
+        qr_code_data = request.POST.get("qr_code_data")
+
+        try:
+            uuid.UUID(qr_code_data, version=4)
+        except ValueError:
+            return render(request, "qr_code_scanner.html", {"error": True, "error_message": "Invalid QR code"})
+
+        ticket = Ticket.objects.filter(id=qr_code_data).first()
+        if not ticket:
+            return render(request, "qr_code_scanner.html", {"error": True, "error_message": "Ticket not found"})
+        if ticket.is_used:
+            return render(request, "qr_code_scanner.html", {"error": True, "error_message": "Ticket already used"})
+        ticket.is_used = True
+        ticket.save()
+        Ticket.objects.filter(user=ticket.user, is_used=False).delete()
+        return render(request, "qr_code_scanner.html", {"success": True, "ticket": ticket, "debater": ticket.user})
+
+    if not request.user.is_authenticated:
+        return render(request, "auth/login.html")
+    elif request.user.role in (1, 2):
+        return render(request, "qr_code_scanner.html")
+    else:
+        return redirect("core:home")
