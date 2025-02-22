@@ -10,8 +10,7 @@ def get_random_id() -> str:
 class User(AbstractUser):
     class Role(models.IntegerChoices):
         ADMIN = 1, "Admin"
-        COORDINATOR = 2, "Coordinator"
-        SELLER = 3, "Seller"
+        STAFF = 3, "Staff"
         ACCOUNT = 4, "Account"
 
     class EnglishLevels(models.TextChoices):
@@ -29,28 +28,14 @@ class User(AbstractUser):
     id = models.CharField(max_length=40, primary_key=True, default=get_random_id, unique=True)
     phone_number = models.CharField(max_length=20, null=True, blank=True, unique=True)
     profile_picture = models.ImageField(upload_to="images/profile_pictures/", default="images/default_user.png")
-    from_group = models.BooleanField(default=False)
     role = models.IntegerField(choices=Role.choices, default=base_role)
+    role_type = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    email = models.EmailField(unique=False, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
 
     english_level = models.CharField(max_length=5, null=True, blank=True, choices=EnglishLevels.choices)
     age = models.CharField(max_length=5, null=True, blank=True, choices=Ages.choices)
-
-    groups = None
-    user_permissions = None
-
-    USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = []
-
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            if self.phone_number:
-                if "+" in self.phone_number:
-                    self.phone_number = self.phone_number.replace("+", "")
-
-        super().save(*args, **kwargs)
 
 
 class AdminManager(models.Manager):
@@ -69,36 +54,20 @@ class Admin(User):
         verbose_name_plural = "Admins"
 
 
-class CoordinatorManager(models.Manager):
+class StaffManager(models.Manager):
     def get_queryset(self, *args, **kwargs):
-        return super().get_queryset(*args, **kwargs).filter(role=User.Role.COORDINATOR)
+        return super().get_queryset(*args, **kwargs).filter(role=User.Role.STAFF)
 
 
 class Coordinator(User):
-    base_role = User.Role.COORDINATOR
+    base_role = User.Role.STAFF
 
-    coordinator = CoordinatorManager()
-
-    class Meta:
-        proxy = True
-        verbose_name = "Coordinator"
-        verbose_name_plural = "Coordinators"
-
-
-class SellerManager(models.Manager):
-    def get_queryset(self, *args, **kwargs):
-        return super().get_queryset(*args, **kwargs).filter(role=User.Role.SELLER)
-
-
-class Seller(User):
-    base_role = User.Role.SELLER
-
-    seller = SellerManager()
+    staff = StaffManager()
 
     class Meta:
         proxy = True
-        verbose_name = "Seller"
-        verbose_name_plural = "Sellers"
+        verbose_name = "Staff"
+        verbose_name_plural = "Staffs"
 
 
 class AccountManager(models.Manager):

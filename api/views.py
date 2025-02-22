@@ -1,11 +1,9 @@
-from django.shortcuts import render
-from core.models import Account, Debate, Ticket
+from core.models import Debate, Ticket
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from users.models import User, Account
-from .serializers import DebateSerializer
-from core.serializers import TicketResponseSerializer
+from core.serializers import DebateResponseSerializer, TicketResponseSerializer
 from users.serializers import (
     AccountIdSerializer,
     AccountCreateSerializer,
@@ -197,7 +195,7 @@ def get_people_id(request):
 @api_view(["GET"])
 def get_debates(request):
     debates = Debate.objects.filter(is_expired=False)
-    serializer = DebateSerializer(debates, many=True)
+    serializer = DebateResponseSerializer(debates, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 

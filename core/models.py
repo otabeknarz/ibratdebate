@@ -48,47 +48,6 @@ class Debate(BaseModel):
         ordering = ["-updated_at"]
 
 
-class Account(BaseModel):
-    ID = models.CharField(primary_key=True, unique=True, max_length=40)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    is_staff_acc = models.BooleanField(default=True)
-    role = models.CharField(max_length=300, null=True)
-    image = models.ImageField(upload_to="images/accounts/", blank=True, null=True)
-    admin_to_location = models.ForeignKey(
-        Location,
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        related_name="accounts",
-    )
-
-    def __str__(self):
-        return self.user.username
-
-
-class People(BaseModel):
-    class EnglishLevels(models.TextChoices):
-        B = "B1-B2", "B1-B2"
-        C = "C1-C2", "C1-C2"
-
-    class Ages(models.TextChoices):
-        TWELVE = "12-14", "12-14"
-        FOURTEEN = "14-16", "14-16"
-        SIXTEEN = "16-18", "16-18"
-        EIGHTEEN = "18<", "18 va undan yuqori"
-
-    ID = models.CharField(max_length=40, primary_key=True, unique=True)
-    name = models.CharField(max_length=255)
-    english_level = models.CharField(
-        max_length=5, null=True, blank=True, choices=EnglishLevels.choices
-    )
-    phone_number = models.CharField(max_length=40, null=True, blank=True)
-    debates = models.ManyToManyField(Debate, related_name="people")
-
-    def __str__(self):
-        return self.name
-
-
 def create_qr_code(id: str) -> str:
     qr_code = qrcode.make(data=id)
     qr_code.save(settings.BASE_DIR / f"media/images/qr_codes/{id}.png")

@@ -4,8 +4,8 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ("id", "username", "phone_number", "role", "from_group", "created_at")
-    list_filter = ("role", "from_group")
+    list_display = ("id", "username", "phone_number", "role", "created_at")
+    list_filter = ("role", "role_type")
     search_fields = ("username", "email", "phone_number")
     list_editable = ("role", "from_group")
     fieldsets = (
@@ -19,7 +19,7 @@ class UserAdmin(admin.ModelAdmin):
             "age",
             "profile_picture",
             "role",
-            "from_group",
+            "role_type",
             "is_staff",
             "is_superuser",
         )}),

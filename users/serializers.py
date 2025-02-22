@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Admin, Coordinator, Seller, Account
+from .models import User, Account
 
 
 class AccountIdSerializer(serializers.ModelSerializer):
