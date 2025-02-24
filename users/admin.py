@@ -7,7 +7,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ("id", "username", "phone_number", "role", "created_at")
     list_filter = ("role", "role_type")
     search_fields = ("username", "email", "phone_number")
-    list_editable = ("role", "from_group")
+    list_editable = ("role",)
     fieldsets = (
         ("Asosiy ma'lumotlar", {"fields": ("id", "username", "password")}),
         ("Qo'shimcha ma'lumotlar", {"fields": (

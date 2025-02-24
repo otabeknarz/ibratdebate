@@ -66,6 +66,5 @@ class UserResponseSerializer(serializers.ModelSerializer):
             "english_level",
             "age",
             "role",
-            "from_group",
             "created_at",
         )

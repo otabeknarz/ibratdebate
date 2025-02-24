@@ -72,5 +72,5 @@ class Ticket(BaseModel):
             try:
                 os.remove(settings.BASE_DIR / f"media/{self.qr_code_path}")
             except Exception as e:
-                logger.error(r)
+                logger.error(e)
         super().delete(*args, **kwargs)
