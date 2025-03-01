@@ -23,7 +23,7 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = i18n_patterns(
     path("_admin/", admin.site.urls),
-    # path("", include("core.urls", namespace="core")),
+    path("", include("core.urls", namespace="core")),
 )
 urlpatterns += [
     path("api/v1/", include("api.urls", namespace="api")),
